@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Dependências
+node_modules/
+
+# Variáveis de ambiente
+.env
+
+# Logs
+*.log
+
+# Arquivos de configuração locais
+.vscode/settings.json
