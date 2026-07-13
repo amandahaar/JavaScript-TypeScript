@@ -1,0 +1,1 @@
+console.log(varA, varB, varC); //B C A
