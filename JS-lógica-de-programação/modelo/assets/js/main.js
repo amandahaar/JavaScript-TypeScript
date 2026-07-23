@@ -18,7 +18,7 @@ function calcularImc() {
     // Função do cálculo
     const imc =
       Number(peso.value) / (Number(altura.value) * Number(altura.value));
-    return imc; // "Quando alguém chamar a função, devolva o resultado do cálculo"
+    return imc.toFixed(2); // "Quando alguém chamar a função, devolva o resultado do cálculo"
   }
 
   // Adiciona um evento no click no botão
