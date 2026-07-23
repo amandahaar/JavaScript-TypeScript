@@ -16,8 +16,10 @@ function calcularImc() {
       return;
     }
     // Função do cálculo
-    const imc =
-      Number(peso.value) / (Number(altura.value) * Number(altura.value));
+    const pesoNumero = Number(peso.value.replace(",", "."));
+    const alturaNumero = Number(altura.value.replace(",", "."));
+
+    const imc = pesoNumero / (alturaNumero * alturaNumero);
     return imc.toFixed(2); // "Quando alguém chamar a função, devolva o resultado do cálculo"
   }
 
