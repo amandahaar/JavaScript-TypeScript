@@ -6,14 +6,16 @@ function calcularImc() {
   const botao = document.querySelector(".botao"); //pega o botão
 
   function calculoImc() {
+    // Quando dá erro no preenchimento
     if (!peso.value) {
-      resultado.innerHTML = `<p class="erro">Peso inválido</p>`;
+      resultado.innerHTML = `<p class="erro">Peso inválido</p>`; // class erro para conseguir mudar a cor
       return;
     }
     if (!altura.value) {
       resultado.innerHTML = `<p class="erro">Altura inválida</p>`;
       return;
     }
+    // Função do cálculo
     const imc =
       Number(peso.value) / (Number(altura.value) * Number(altura.value));
     return imc; // "Quando alguém chamar a função, devolva o resultado do cálculo"
@@ -21,7 +23,7 @@ function calcularImc() {
 
   // Adiciona um evento no click no botão
   botao.addEventListener("click", function (evento) {
-    evento.preventDefault(); // página para de recarregar sozinha
+    evento.preventDefault(); // página pára de recarregar sozinha
     const imc = calculoImc();
     console.log(imc);
 
