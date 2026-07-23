@@ -3,6 +3,8 @@
 :root {
     --primary-color: #328794;
     --primary-color-dark:#2781ab;
+    --resultado-color: #1ad68b;
+    --erro-color:#d6301a;
 }
 
 * {
@@ -60,4 +62,37 @@ form button:hover {
 
 form button:active {
     background:#035f42;
+}
+
+.resultado {
+    height: 50px;
+}
+
+.resultado.mostrar {
+    height: 50px;
+    display: flex;
+    background-color:var(--resultado-color);
+    padding: 15px;
+    align-items: center;
+}
+
+.resultado:has(.erro) {
+    height: 50px;
+    display: flex;
+    background-color:var(--erro-color);
+    padding: 15px;
+    align-items: center;
+}
+
+.colunas {
+    display: flex;
+    justify-content: flex-start;
+    gap: 90px; /* espaçamento entre as colunas */
+    line-height: 0;
+    margin-left: 20px;
+
+}
+.coluna {
+    display: flex;
+    flex-direction: column;
 }
