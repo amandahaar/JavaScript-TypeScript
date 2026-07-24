@@ -22,7 +22,8 @@ body {
 }
 
 .container {
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     margin: 50px auto;
     background: #fff;
     padding: 20px;
@@ -88,7 +89,7 @@ form button:active {
     display: flex;
     justify-content: flex-start;
     gap: 90px; /* espaçamento entre as colunas */
-    line-height: 0;
+    line-height: 1;
     margin-left: 20px;
 
 }
