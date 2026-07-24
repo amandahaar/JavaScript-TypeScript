@@ -17,14 +17,26 @@ function calcularImc() {
     }
     // Função do cálculo
     const pesoNumero = Number(peso.value.replace(",", "."));
-    const alturaNumero = Number(altura.value.replace(",", "."));
+    let alturaNumero = Number(altura.value.replace(",", "."));
 
-    if (!pesoNumero || !alturaNumero || alturaNumero === 0) {
+    // Se a altura for maior que 3, considera que foi digitada em centímetros
+    if (alturaNumero > 3) {
+      alturaNumero = alturaNumero / 100;
+    }
+    if (!pesoNumero || !alturaNumero) {
+      return NaN;
+      // Validação dos limites
+    }
+    if (
+      pesoNumero < 15 ||
+      pesoNumero > 350 ||
+      alturaNumero < 0.5 ||
+      alturaNumero > 2.5
+    ) {
       return NaN;
     }
-
     const imc = pesoNumero / (alturaNumero * alturaNumero);
-    return imc.toFixed(2); // "Quando alguém chamar a função, devolva o resultado do cálculo"
+    return Number(imc.toFixed(2)); // "Quando alguém chamar a função, devolva o resultado do cálculo"
   }
 
   // Adiciona um evento no click no botão
@@ -34,6 +46,10 @@ function calcularImc() {
 
     resultado.classList.add("mostrar"); // Aparecer o resultado
 
+    if (Number.isNaN(imc)) {
+      resultado.innerHTML = `<p class="erro">IMC inválido</p>`;
+      return;
+    }
     // Condições
     if (imc < 18.5) {
       resultado.innerHTML = `<p>Seu IMC é: ${imc} (Abaixo do peso)</p>`;
