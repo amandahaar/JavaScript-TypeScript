@@ -9,11 +9,11 @@ function calcularImc() {
     // Quando dá erro no preenchimento
     if (!peso.value) {
       resultado.innerHTML = `<p class="erro">Peso inválido</p>`; // class erro para conseguir mudar a cor
-      return;
+      return NaN;
     }
     if (!altura.value) {
       resultado.innerHTML = `<p class="erro">Altura inválida</p>`;
-      return;
+      return NaN;
     }
     // Função do cálculo
     const pesoNumero = Number(peso.value.replace(",", "."));
@@ -33,6 +33,7 @@ function calcularImc() {
       alturaNumero < 0.5 ||
       alturaNumero > 2.5
     ) {
+      resultado.innerHTML = `<p class="erro">Peso ou altura inválidos.</p>`;
       return NaN;
     }
     const imc = pesoNumero / (alturaNumero * alturaNumero);
@@ -47,7 +48,6 @@ function calcularImc() {
     resultado.classList.add("mostrar"); // Aparecer o resultado
 
     if (Number.isNaN(imc)) {
-      resultado.innerHTML = `<p class="erro">IMC inválido</p>`;
       return;
     }
     // Condições
